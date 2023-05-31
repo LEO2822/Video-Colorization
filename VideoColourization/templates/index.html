@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Colourization</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+
+    <!-- this script is for refreshing only : Developement mode -->
+    <!-- <script>
+      // Function to refresh the page
+      function refreshPage() {
+        location.reload();
+      }
+
+      // Set the refresh interval in milliseconds (e.g., 5000ms = 5 seconds)
+      var refreshInterval = 2000;
+
+      // Set up the timer to refresh the page
+      setTimeout(refreshPage, refreshInterval);
+    </script> -->
+  </head>
+  <body>
+    <div class="hero">
+      <nav>
+          <img src="/static/images/logo.png" alt="Logo" class="navbar-logo">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/colourize">Colourize</a></li>
+        </ul>
+        <a href="/login"><button type="button">Join Now</button></a>
+      </nav>
+    </div>
+    <div class="container">
+      <div class="left-section">
+
+        <div class="type">
+          <h1>
+            Welcome to our <span> video colorization </span>website!
+          </h1>
+        </div>
+
+        <p>
+          Experience the magic of transforming black and white videos into
+          vibrant, lifelike masterpieces. Our advanced algorithms and
+          cutting-edge technology make it easy for you to breathe new life into
+          your precious memories. Simply upload your footage, select your
+          desired color palette, and watch as our powerful software brings your
+          videos to life with stunning colors. Whether you want to add a touch
+          of nostalgia or create a modern cinematic look, our video colorization
+          service is your gateway to visually captivating storytelling. Try it
+          now and see your videos in a whole new light!
+        </p>
+      </div>
+    </div>
+  
+    <div class="btn-container">
+      <div class="center">
+        <a id="getstarted" href="/colourize"><button type="button">Get Started</button></a>
+      </div>
+    </div>
+    
+    <section class="video-container">
+            <video class="vid" id="vid1" src="/static/videos/man-bw.mp4" autoplay loop muted width="230" height="440"></video>
+            <video class="vid" id="vid2" src="/static/videos/man-colored.mp4" autoplay loop muted width="230" height="440"></video>
+            <video class="vid" id="vid3" src="/static/videos/knop-bw.mp4" autoplay loop muted width="400"></video>
+            <video class="vid" id="vid4" src="/static/videos/knop-colored.mp4" autoplay loop muted width="400"></video>
+            <video class="vid" id="vid5" src="/static/videos/cottonbro-bw.mp4" autoplay loop muted width="400"></video>
+            </>
+            <video class="vid" id="vid6" src="/static/videos/cottonbro-colored.mp4" autoplay loop muted width="400"></video>
+        </section>
+
+        <div class="bottom-p">
+          <p>
+            Intensify the visual impact of your videos with our video colorization service. Unleash a spectrum of vibrant hues that breathe life into every frame. Our skilled team of colorization experts meticulously handcraft each scene, employing state-of-the-art technology to ensure precision and accuracy. From classic films to personal memories, we enhance the viewing experience by adding depth, dimension, and realism through the art of color. Reimagine the past and reimagine the possibilities with our video colorization service. Step into a world where black and white becomes a canvas for vivid storytelling. Unlock the true potential of your videos today and let colors speak louder than words.
+          </p>
+        </div>
+  </body>
+</html>
