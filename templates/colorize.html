@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Colorization</title>
+    <link rel="stylesheet" href="/static/css/colorize.css" />
+  </head>
+  <body>
+    <div class="hero">
+      <nav>
+        <a href="/"
+          ><img src="/static/images/logo.png" alt="Logo" class="navbar-logo"
+        /></a>
+
+        <ul>
+          <li><a href="/">Home</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="video-player">
+      <video
+        id="videoPlayer1"
+        controls
+        width="520"
+        height="400"
+        autoplay
+        controls="true"
+        muted
+      ></video>
+    
+      <!-- <video
+        id="videoPlayer2"
+        controls
+        width="520"
+        height="400"
+        autoplay
+        muted
+      ></video> -->
+    </div>
+    
+    <div class="btn-container">
+      <div class="center">
+        <form id="uploadForm" action="/colorize" method="POST" enctype="multipart/form-data">
+          <label for="videoFileInput" class="custom-file-button">Upload</label>
+          <input type="file" id="videoFileInput" name="videoFileInput" />
+          <!-- <br><br> -->
+          <button type="button" class="button" onclick="submitForm()" style="cursor: pointer;">Colorize</button>
+        </form>
+      </div>
+    </div>
+    
+    <script>
+      const fileButton = document.querySelector(".custom-file-button");
+      const videoFileInput = document.getElementById("videoFileInput");
+      const videoPlayer1 = document.getElementById("videoPlayer1");
+      const videoPlayer2 = document.getElementById("videoPlayer2");
+    
+      videoFileInput.addEventListener("change", function () {
+        const selectedFile = videoFileInput.files[0];
+        const videoURL = URL.createObjectURL(selectedFile);
+        videoPlayer1.src = videoURL;
+      });
+    
+      function submitForm() {
+        // Check if a file is selected
+        const fileInput = document.getElementById("videoFileInput");
+        if (!fileInput.files || fileInput.files.length === 0) {
+          alert("Please select a video file.");
+          return;
+        }
+    
+        const formData = new FormData();
+        formData.append("videoFileInput", fileInput.files[0]);
+    
+        fetch("/colorize", {
+          method: "POST",
+          body: formData,
+        })
+          .then(response => response.text())
+          .then(result => {
+            console.log(result);
+            videoPlayer2.src = result; // Set the source of videoplayer2 to the received video URL
+          })
+          .catch(error => {
+            console.error("Error:", error);
+            // Handle the error
+          });
+      }
+    </script>
+    
+    
+    
+    
+  </body>
+</html>
